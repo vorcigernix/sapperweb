@@ -1,34 +1,28 @@
+<script>
+	import HeroBanner from '../components/Banner.svelte';
+	import Overview from '../components/Overview.svelte';
+	import OpenHours from '../components/OpenHours.svelte';
+</script>
+
 <style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
+	.hero-banner {
+		height: 100vh;
+		background-color: #555555;
+		max-width: 100vw;
+		overflow-x: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
+	.hero-img {
+		object-fit: cover;
+		object-position: center;
+		height: 100%;
 	}
 
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
+	main {
+		padding-top: 64px;
 	}
 </style>
 
@@ -36,11 +30,13 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<HeroBanner />
+<Overview />
+<OpenHours />
 
-<figure>
-	<img alt='Borat' src='great-success.png'>
-	<figcaption>HIGH FIVE!</figcaption>
-</figure>
 
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+
+
+
+
+

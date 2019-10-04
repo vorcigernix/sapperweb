@@ -3,49 +3,61 @@
 </script>
 
 <style>
+	a {
+		color: #fff;
+		display: inline-block;;
+		line-height: 1.5;
+		font-size: 16px;
+		text-decoration: none;
+		font-weight: 500;
+		padding: 15px 0;
+		text-transform: capitalize;
+		transition: all 0.2s ease-in-out 0s;
+	}
+
+	a:hover {
+		color: #bc8d4b;
+	}
 	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
-		font-weight: 300;
-		padding: 0 1em;
+		display: flex;
 	}
 
-	ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	/* clearfix */
-	ul::after {
-		content: '';
-		display: block;
-		clear: both;
-	}
-
-	li {
-		display: block;
-		float: left;
+	ul, li, a {
+		width: 100%;
 	}
 
 	.selected {
+		color: #bc8d4b;
 		position: relative;
-		display: inline-block;
 	}
 
-	.selected::after {
-		position: absolute;
-		content: '';
-		width: calc(100% - 1em);
-		height: 2px;
-		background-color: rgb(255,62,0);
-		display: block;
-		bottom: -1px;
+
+
+	@media only screen and (min-width: 768px) {
+		ul {display: flex;
+			flex-direction: row;
+		}
+
+		ul, li, a {
+			width: auto;
+		}
+
+		a {
+			padding: 16px 25px;
+			font-size: 20px;;
+		}
+
+		.selected::after {
+			position: absolute;
+			content: '';
+			width: calc(100% - 50px);
+			height: 2px;
+			background-color: #bc8d4b;
+			display: block;
+			bottom: 12px;
+		}
 	}
 
-	a {
-		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
-	}
 </style>
 
 <nav>
