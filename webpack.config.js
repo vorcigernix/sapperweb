@@ -9,6 +9,8 @@ const dev = mode === 'development';
 const alias = { svelte: path.resolve('node_modules', 'svelte') };
 const extensions = ['.mjs', '.js', '.json', '.svelte', '.html'];
 const mainFields = ['svelte', 'module', 'browser', 'main'];
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+ 
 
 module.exports = {
 	client: {
@@ -66,7 +68,8 @@ module.exports = {
 		mode: process.env.NODE_ENV,
 		performance: {
 			hints: false // it doesn't matter if server.js is large
-		}
+		},
+		
 	},
 
 	serviceworker: {

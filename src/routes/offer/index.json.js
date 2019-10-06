@@ -27,7 +27,7 @@ export function get(req, res) {
 		ref_value = value;
 		url_value = baseurl + '/documents/search?ref=' + ref_value;
 		if (ref_value != undefined) {
-			fetch(`${url_value}&q=%5B%5Bat(document.type%2C+%22posts%22)%5D%5D&format=json`)
+			fetch(`${url_value}&q=%5B%5Bat(document.type%2C+"product")%5D%5D#format=json`)
 			.then(r => r.json())
 			.then(items => {
 				send(res, 200, JSON.stringify(items.results), {
