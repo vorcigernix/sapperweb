@@ -25,7 +25,17 @@ export function get(req, res) {
 
 	refid.subscribe(value => {
 		ref_value = value;
-		console.log(ref_value)
+		url_value = baseurl + '/documents/search?ref=' + ref_value;
+		if (ref_value != undefined) {
+			fetch(`${url_value}&q=%5B%5Bat(document.type%2C+%22posts%22)%5D%5D&format=json`)
+			.then(r => r.json())
+			.then(items => {
+				send(res, 200, JSON.stringify(items.results), {
+					'Cache-Control': `max-age=0, s-max-age=${600}`, // 10 minutes
+					'Content-Type': 'application/json'
+				});
+			});
+		}
 	});
 	if (ref_value === undefined) {
 		fetch(baseurl)
@@ -35,13 +45,4 @@ export function get(req, res) {
 			});
 	}
 	
-
-	/* 	fetch(`${url_value}XY32zBAAAB4Agd5X&q=%5B%5Bat(document.type%2C+%22posts%22)%5D%5D&format=json`)
-			.then(r => r.json())
-			.then(items => {
-				send(res, 200, JSON.stringify(items.results), {
-					'Cache-Control': `max-age=0, s-max-age=${600}`, // 10 minutes
-					'Content-Type': 'application/json'
-				});
-			}); */
 }
