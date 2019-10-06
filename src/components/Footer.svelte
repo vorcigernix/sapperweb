@@ -27,9 +27,9 @@
 
 	@media (min-width: 768px) {
 
-		.block__ico {
+/* 		.block__ico {
 			margin-right: 25px;
-		}
+		} */
 
 		.overview-grid {
 			row-gap: 0;

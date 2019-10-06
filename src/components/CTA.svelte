@@ -20,5 +20,5 @@
 	}
 </style>
 
-<a href="#">Book a table</a>
+<a href="#book">Book a table</a>
 

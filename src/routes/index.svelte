@@ -5,7 +5,7 @@
 </script>
 
 <style>
-	.hero-banner {
+/* 	.hero-banner {
 		height: 100vh;
 		background-color: #555555;
 		max-width: 100vw;
@@ -23,7 +23,7 @@
 
 	main {
 		padding-top: 64px;
-	}
+	} */
 </style>
 
 <svelte:head>

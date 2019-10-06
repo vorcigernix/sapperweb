@@ -65,8 +65,8 @@
 		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
 		<li><a class='{segment === "about" ? "selected" : ""}' href='about'>about</a></li>
 
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch class='{segment === "blog" ? "selected" : ""}' href='blog'>blog</a></li>
+		<!-- for the offer link, we're using rel=prefetch so that Sapper prefetches
+		     the offer data when we hover over the link or tap it on a touchscreen -->
+		<li><a rel=prefetch class='{segment === "offer" ? "selected" : ""}' href='offer'>offer</a></li>
 	</ul>
 </nav>

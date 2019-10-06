@@ -33,7 +33,7 @@
 		z-index: 1;
 	}
 
-	h1, p, a {
+	h1, p {
 		position: relative;
 		z-index: 2;;
 	}
