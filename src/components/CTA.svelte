@@ -1,3 +1,9 @@
+<script>
+	export let linkTitle;
+	export let linkHref = '#';
+	export let linkTheme = 'link-dark';
+</script>
+
 <style>
 	a {
 		color: #ffffff;
@@ -10,7 +16,7 @@
 		padding: 10px 24px;
 		transition: all 0.5s ease-in-out 0s;
 		position: relative;
-		z-index: 2;;
+		z-index: 2;
 	}
 
 	a:hover {
@@ -18,7 +24,29 @@
 		border: 5px solid #bc8d4b;
 		background: #bc8d4b;
 	}
+
+	.link-dark {
+		color: #252525;
+		border: 5px solid #252525;
+	}
+
+	.link-dark:hover {
+		color: #ffffff;
+		border: 5px solid #bc8d4b;
+		background: #bc8d4b;
+	}
+
+	.link-light {
+		color: #ffffff;
+		border: 5px solid #ffffff;
+	}
+
+	.link-light:hover {
+		color: #ffffff;
+		border: 5px solid #bc8d4b;
+		background: #bc8d4b;
+	}
 </style>
 
-<a href="#book">Book a table</a>
+<a href="{linkHref}" class="{linkTheme}">{linkTitle}</a>
 

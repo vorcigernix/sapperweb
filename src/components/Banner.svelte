@@ -75,5 +75,5 @@
 	<p>
 		You should come and taste for yourself
 	</p>
-	<CTA />
+	<CTA linkHref="#" linkTheme="link-light" linkTitle="Book a table"/>
 </div>
