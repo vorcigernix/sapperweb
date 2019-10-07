@@ -58,7 +58,7 @@ body {
 	line-height: 1.5;
 	color: #252525;
 	overflow-x: hidden;
-	/*padding-top: 64px;*/
+	padding-top: 64px;
 }
 
 a {
@@ -89,6 +89,10 @@ code {
 @media (min-width: 768px) {
 	.container {
 		width: 752px;
+	}
+
+	body {
+		padding-top: 110px;
 	}
 }
 

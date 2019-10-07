@@ -15,6 +15,9 @@
 		position: fixed;
 		width: 100vw;
 		z-index: 10;
+		background-color: #151515;
+		top: 0;
+		left: 0;
 	}
 
 	.header__inner {

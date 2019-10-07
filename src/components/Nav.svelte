@@ -54,7 +54,7 @@
 			height: 2px;
 			background-color: #bc8d4b;
 			display: block;
-			bottom: 12px;
+			bottom: 0;
 		}
 	}
 
