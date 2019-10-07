@@ -2,6 +2,7 @@
 	import HeroBanner from '../components/Banner.svelte';
 	import Overview from '../components/Overview.svelte';
 	import OpenHours from '../components/OpenHours.svelte';
+	import { fade } from 'svelte/transition';
 </script>
 
 <style>
@@ -11,13 +12,8 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-<HeroBanner />
-<Overview />
-<OpenHours />
-
-
-
-
-
-
-
+<div transition:fade>
+	<HeroBanner />
+	<Overview />
+	<OpenHours />
+</div>
