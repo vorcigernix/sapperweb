@@ -2,6 +2,7 @@
 	import OpenHours from '../components/OpenHours.svelte';
 	import CTA from '../components/CTA.svelte';
 	import Title from '../components/Title.svelte';
+	import HeroBanner from '../components/Banner.svelte';
 </script>
 
 <style>
@@ -57,6 +58,7 @@
 	<title>About</title>
 </svelte:head>
 
+<HeroBanner bannerSubtitle="Welcome to Dina, a modern restaurant with a focus on premium food tastes" bannerTitle="ABOUT US" hasButton=false  bannerImg="hero-banner--about"/>
 <section>
 	<div class="container">
 

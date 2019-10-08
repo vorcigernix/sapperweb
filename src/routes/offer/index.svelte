@@ -12,17 +12,13 @@
 	import Title from '../../components/Title.svelte';
 	import { fade } from 'svelte/transition';
 	import Product from '../../components/Products.svelte'
+	import HeroBanner from '../../components/Banner.svelte';
 	export let posts;
 
 	let current;
 </script>
 
 <style>
-
-	button {
-		display: block;
-	}
-
 	section {
 		text-align: center;
 		padding-top: 54px;
@@ -177,6 +173,8 @@
 <svelte:head>
 	<title>offer</title>
 </svelte:head>
+
+<HeroBanner bannerSubtitle="Welcome to Dina, a modern restaurant with a focus on premium food tastes" bannerTitle="ABOUT US" hasButton=false  bannerImg="hero-banner--offer" />
 
 <section>
 	<div class="container"  transition:fade>

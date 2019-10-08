@@ -3,6 +3,7 @@
 	import Overview from '../components/Overview.svelte';
 	import OpenHours from '../components/OpenHours.svelte';
 	import { fade } from 'svelte/transition';
+
 </script>
 
 <style>
@@ -13,7 +14,7 @@
 </svelte:head>
 
 <div transition:fade>
-	<HeroBanner />
+	<HeroBanner bannerSubtitle="You should come and taste for yourself" bannerTitle="Welcome" themeBannerHeight='hero-banner--full-height' hasButton=true bannerImg="hero-banner--homepage"/>
 	<Overview />
 	<OpenHours />
 </div>

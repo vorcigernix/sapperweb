@@ -1,5 +1,11 @@
 <script>
 	import CTA from '../components/CTA.svelte';
+
+	export let bannerTitle;
+	export let bannerSubtitle;
+	export let themeBannerHeight;
+	export let hasButton;
+	export let bannerImg;
 </script>
 
 <style>
@@ -13,7 +19,7 @@
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		background-image: url('img/img-2.jpg');
+		background-image: none;
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -22,9 +28,21 @@
 		text-align: center;
 	}
 
+	.hero-banner--homepage {
+		background-image: url('img/img-2.jpg');
+	}
+
+	.hero-banner--about {
+		background-image: url('img/img-3.jpg');
+	}
+
+	.hero-banner--offer {
+		background-image: url('img/img-4.jpg');
+	}
+
 	.hero-banner:before {
 		content: '';
-		background: rgba(25, 32, 46, 0.3);
+		background: rgba(25, 32, 46, 0.5);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -53,12 +71,17 @@
 		margin-bottom: 24px;
 	}
 
+	.hero-banner--full-height h1 {
+		font-size: 36px;
+	}
+
 	@media only screen and (min-width: 768px) {
-		.hero-banner {
+
+		.hero-banner--full-height {
 			height: 100vh;
 		}
 
-		h1 {
+		.hero-banner--full-height h1 {
 			font-size: 108px;
 		}
 
@@ -68,12 +91,14 @@
 	}
 </style>
 
-<div class="hero-banner">
+<div class="hero-banner {themeBannerHeight} {bannerImg}">
 	<h1>
-		Welcome
+		{bannerTitle}
 	</h1>
 	<p>
-		You should come and taste for yourself
+		{bannerSubtitle}
 	</p>
-	<CTA linkHref="#" linkTheme="link-light" linkTitle="Book a table"/>
+	{#if hasButton === 'true'}
+		<CTA linkHref="#" linkTheme="link-light" linkTitle="Book a table"/>
+	{/if}
 </div>

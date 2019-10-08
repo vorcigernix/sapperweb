@@ -14,6 +14,7 @@
 		position: relative;
 		display: inline-block;
 		margin-bottom: 36px;
+		z-index: 2;
 	}
 
 	span {
