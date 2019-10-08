@@ -14,7 +14,7 @@
 	import Product from '../../components/Products.svelte'
 	export let posts;
 
-	let current = 'foo';
+	let current;
 </script>
 
 <style>
@@ -23,14 +23,14 @@
 		display: block;
 	}
 
-	.active {
-		background-color: #ff3e00;
-		color: white;
-	}
-
-
 	section {
 		text-align: center;
+		padding-top: 54px;
+		padding-bottom: 32px;
+	}
+
+	.category {
+		margin-top: 40px;
 	}
 
 	.category__item {
@@ -62,12 +62,14 @@
 		background: #fff;
 	}
 
-	.item-active .category__title:after {
-		transform: rotate(45deg);
+	.category__item--active .category__title:after {
+		transform: rotate(-45deg);
+		background: #fff;
 	}
 
-	.item-active .category__title:before {
-		transform: rotate(-45deg);
+	.category__item--active .category__title:before {
+		transform: rotate(45deg);
+		background: #fff;
 	}
 
 	.category__title:after,
@@ -80,7 +82,7 @@
 		top: 50%;
 		background-color: #252525;
 		transform: rotate(45deg);
-		transition: all 0.5s ease-in-out 0s;
+		transition: all 0.2s ease-in-out 0s;
 	}
 
 	.category__title:before {
@@ -90,7 +92,7 @@
 
 	.items {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
 		column-gap: 16px;
 		row-gap: 16px;
 		padding-top: 16px;
@@ -112,6 +114,36 @@
 	.item-name {
 		display: flex;
 		justify-content: space-between;
+		position: relative;
+	}
+
+	.item-name__title,
+	.item-name__price {
+		background-color: #fff;
+		z-index: 2;
+	}
+
+	.item-name__title {
+		padding-right: 5px;
+	}
+
+	.item-name__price {
+		padding-left: 5px;
+	}
+
+	.item-name__dots {
+		position: absolute;
+		top: 14px;
+		left: 80px;
+		right: 0;
+		margin: 0;
+		border: 0;
+		height: 5px;
+		display: block;
+		background: radial-gradient(#d5d5d5 40%, transparent 10%);
+		background-position: 0 0;
+		background-size: 4px 4px;
+		background-repeat: repeat-x;
 	}
 
 	.item > div {
@@ -122,21 +154,19 @@
 		display: none;
 	}
 
-	.item-is-open .category__content {
+	.category__item--active .category__content {
 		display: block;
 	}
 
-	.active {
-		background-color: #ff3e00;
+	.category__item--active .category__title  {
+		background-color: #252525;
 		color: white;
 	}
 
 	@media only screen and (min-width: 992px) {
-		section {
-			text-align: left;
-		}
 
 		.items {
+			grid-template-columns: 1fr 1fr;
 			column-gap: 32px;
 			row-gap: 32px;
 		}
@@ -155,7 +185,8 @@
 		<p>Explore texture, color and of course the ultimate tastes with our menu of the season. All the ingredients are fresh and carefully selected by our chefs. Enjoy an extraordinary dinning experience.</p>
 
 		<ul class="category">
-			<li class:active="{current === 'foo'}">
+			<li class="category__item {current === 0 ? 'category__item--active': ''}"
+				on:click="{() => current = 0}">
 				<h4 class="category__title">
 					category 1
 				</h4>
@@ -165,7 +196,7 @@
 							<img src="img/thumb.jpg" class="item-img" alt="">
 							<div>
 								<p class="item-name">
-									<span>AVOCADO & MANGO SALSA</span> $4.00
+									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
 								</p>
 								<p class="item-ingredients">
 									Avocado / Mango / Tomatoes
@@ -176,7 +207,7 @@
 							<img src="img/thumb.jpg" class="item-img" alt="">
 							<div>
 								<p class="item-name">
-									<span>AVOCADO & MANGO SALSA</span> $4.00
+									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
 								</p>
 								<p class="item-ingredients">
 									Avocado / Mango / Tomatoes
@@ -187,7 +218,7 @@
 							<img src="img/thumb.jpg" class="item-img" alt="">
 							<div>
 								<p class="item-name">
-									<span>AVOCADO & MANGO SALSA</span> $4.00
+									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
 								</p>
 								<p class="item-ingredients">
 									Avocado / Mango / Tomatoes
@@ -198,9 +229,10 @@
 				</div>
 			</li>
 
-			<li class:active="{current === 'foo'}">
+			<li class="category__item {current === 1 ? 'category__item--active': ''}"
+				on:click="{() => current = 1}">
 				<h4 class="category__title">
-					category 1
+					category 2
 				</h4>
 				<div class="category__content">
 					<ul class="items">
@@ -208,7 +240,7 @@
 							<img src="img/thumb.jpg" class="item-img" alt="">
 							<div>
 								<p class="item-name">
-									<span>AVOCADO & MANGO SALSA</span> $4.00
+									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
 								</p>
 								<p class="item-ingredients">
 									Avocado / Mango / Tomatoes
@@ -219,7 +251,7 @@
 							<img src="img/thumb.jpg" class="item-img" alt="">
 							<div>
 								<p class="item-name">
-									<span>AVOCADO & MANGO SALSA</span> $4.00
+									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
 								</p>
 								<p class="item-ingredients">
 									Avocado / Mango / Tomatoes
@@ -230,7 +262,7 @@
 							<img src="img/thumb.jpg" class="item-img" alt="">
 							<div>
 								<p class="item-name">
-									<span>AVOCADO & MANGO SALSA</span> $4.00
+									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
 								</p>
 								<p class="item-ingredients">
 									Avocado / Mango / Tomatoes
@@ -241,9 +273,10 @@
 				</div>
 			</li>
 
-			<li class="category__item" class:active="{current === 'foo'}">
+			<li class="category__item {current === 2 ? 'category__item--active': ''}"
+				on:click="{() => current = 2}">
 				<h4 class="category__title">
-					category 1
+					category 3
 				</h4>
 				<div class="category__content">
 					<ul class="items">
@@ -251,7 +284,7 @@
 							<img src="img/thumb.jpg" class="item-img" alt="">
 							<div>
 								<p class="item-name">
-									<span>AVOCADO & MANGO SALSA</span> $4.00
+									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
 								</p>
 								<p class="item-ingredients">
 									Avocado / Mango / Tomatoes
@@ -262,7 +295,7 @@
 							<img src="img/thumb.jpg" class="item-img" alt="">
 							<div>
 								<p class="item-name">
-									<span>AVOCADO & MANGO SALSA</span> $4.00
+									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
 								</p>
 								<p class="item-ingredients">
 									Avocado / Mango / Tomatoes
@@ -273,7 +306,7 @@
 							<img src="img/thumb.jpg" class="item-img" alt="">
 							<div>
 								<p class="item-name">
-									<span>AVOCADO & MANGO SALSA</span> $4.00
+									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
 								</p>
 								<p class="item-ingredients">
 									Avocado / Mango / Tomatoes
@@ -294,22 +327,6 @@
 			{/each}
 		</ul>
 	</div>
-
-	<button
-			class:active="{current === 'foo'}"
-			on:click="{() => current = 'foo'}"
-	>foo</button>
-
-	<button
-			class:active="{current === 'bar'}"
-			on:click="{() => current = 'bar'}"
-	>bar</button>
-
-	<button
-			class:active="{current === 'baz'}"
-			on:click="{() => current = 'baz'}"
-	>baz</button>
-
 </section>
 
 <ul transition:fade>
