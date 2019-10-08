@@ -150,6 +150,10 @@
 		display: none;
 	}
 
+	.category__item--active {
+		margin-bottom: 0;
+	}
+
 	.category__item--active .category__content {
 		display: block;
 	}
@@ -165,6 +169,16 @@
 			grid-template-columns: 1fr 1fr;
 			column-gap: 32px;
 			row-gap: 32px;
+			padding-top: 32px;
+			padding-bottom: 0;
+		}
+
+		.item {
+			padding: 16px 0;
+		}
+
+		.category__item--active {
+			margin-bottom: 24px;
 		}
 	}
 
@@ -182,152 +196,57 @@
 
 		<p>Explore texture, color and of course the ultimate tastes with our menu of the season. All the ingredients are fresh and carefully selected by our chefs. Enjoy an extraordinary dinning experience.</p>
 
-		<ul class="category">
-			<li class="category__item {current === 0 ? 'category__item--active': ''}"
-				on:click="{() => current = 0}">
-				<h4 class="category__title">
-					category 1
-				</h4>
-				<div class="category__content">
-					<ul class="items">
-						<li class="item">
-							<img src="img/thumb.jpg" class="item-img" alt="">
-							<div>
-								<p class="item-name">
-									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-								</p>
-								<p class="item-ingredients">
-									Avocado / Mango / Tomatoes
-								</p>
-							</div>
-						</li>
-						<li class="item">
-							<img src="img/thumb.jpg" class="item-img" alt="">
-							<div>
-								<p class="item-name">
-									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-								</p>
-								<p class="item-ingredients">
-									Avocado / Mango / Tomatoes
-								</p>
-							</div>
-						</li>
-						<li class="item">
-							<img src="img/thumb.jpg" class="item-img" alt="">
-							<div>
-								<p class="item-name">
-									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-								</p>
-								<p class="item-ingredients">
-									Avocado / Mango / Tomatoes
-								</p>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</li>
 
-			<li class="category__item {current === 1 ? 'category__item--active': ''}"
-				on:click="{() => current = 1}">
-				<h4 class="category__title">
-					category 2
-				</h4>
-				<div class="category__content">
-					<ul class="items">
-						<li class="item">
-							<img src="img/thumb.jpg" class="item-img" alt="">
-							<div>
-								<p class="item-name">
-									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-								</p>
-								<p class="item-ingredients">
-									Avocado / Mango / Tomatoes
-								</p>
-							</div>
-						</li>
-						<li class="item">
-							<img src="img/thumb.jpg" class="item-img" alt="">
-							<div>
-								<p class="item-name">
-									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-								</p>
-								<p class="item-ingredients">
-									Avocado / Mango / Tomatoes
-								</p>
-							</div>
-						</li>
-						<li class="item">
-							<img src="img/thumb.jpg" class="item-img" alt="">
-							<div>
-								<p class="item-name">
-									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-								</p>
-								<p class="item-ingredients">
-									Avocado / Mango / Tomatoes
-								</p>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</li>
-
-			<li class="category__item {current === 2 ? 'category__item--active': ''}"
-				on:click="{() => current = 2}">
-				<h4 class="category__title">
-					category 3
-				</h4>
-				<div class="category__content">
-					<ul class="items">
-						<li class="item">
-							<img src="img/thumb.jpg" class="item-img" alt="">
-							<div>
-								<p class="item-name">
-									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-								</p>
-								<p class="item-ingredients">
-									Avocado / Mango / Tomatoes
-								</p>
-							</div>
-						</li>
-						<li class="item">
-							<img src="img/thumb.jpg" class="item-img" alt="">
-							<div>
-								<p class="item-name">
-									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-								</p>
-								<p class="item-ingredients">
-									Avocado / Mango / Tomatoes
-								</p>
-							</div>
-						</li>
-						<li class="item">
-							<img src="img/thumb.jpg" class="item-img" alt="">
-							<div>
-								<p class="item-name">
-									<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-								</p>
-								<p class="item-ingredients">
-									Avocado / Mango / Tomatoes
-								</p>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</li>
-		</ul>
-		<ul>
-			{#each posts as post}
-			<!-- we're using the non	-standard `rel=prefetch` attribute to
-				tell Sapper to load the data for the page as soon as
-				the user hovers over the link or taps it, instead of
-				waiting for the 'click' event -->
-				<li><a rel='prefetch' href='offer/{post.data.slug}'>{post.data.title}</a></li>
+		<ul class="category" transition:fade>
+			{#each posts as post, i}
+				<li class="category__item {current === i ? 'category__item--active': ''}" on:click="{() => current = i}">
+					<h4 class="category__title">
+						{post.data.title[0].text}
+					</h4>
+					<div class="category__content">
+						<ul class="items">
+							<li class="item">
+								<img src="img/thumb.jpg" class="item-img" alt="">
+								<div>
+									<p class="item-name">
+										<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
+									</p>
+									<p class="item-ingredients">
+										Avocado / Mango / Tomatoes
+									</p>
+								</div>
+							</li>
+							<li class="item">
+								<img src="img/thumb.jpg" class="item-img" alt="">
+								<div>
+									<p class="item-name">
+										<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
+									</p>
+									<p class="item-ingredients">
+										Avocado / Mango / Tomatoes
+									</p>
+								</div>
+							</li>
+							<li class="item">
+								<img src="img/thumb.jpg" class="item-img" alt="">
+								<div>
+									<p class="item-name">
+										<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
+									</p>
+									<p class="item-ingredients">
+										Avocado / Mango / Tomatoes
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</li>
 			{/each}
 		</ul>
 	</div>
 </section>
 
-<ul transition:fade>
+<ul>
 	{#each posts as post}
 		<li>{post.data.title[0].text}</li>
 		<Product categoryid={post.id} />
