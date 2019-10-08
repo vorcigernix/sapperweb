@@ -174,7 +174,7 @@
 	<title>offer</title>
 </svelte:head>
 
-<HeroBanner bannerSubtitle="Welcome to Dina, a modern restaurant with a focus on premium food tastes" bannerTitle="ABOUT US" hasButton=false  bannerImg="hero-banner--offer" />
+<HeroBanner bannerSubtitle="Welcome to Dina, a modern restaurant with a focus on premium food tastes" bannerTitle="ABOUT US" hasButton=false  bannerImg="hero-banner--offer"  themeBannerHeight=false/>
 
 <section>
 	<div class="container"  transition:fade>

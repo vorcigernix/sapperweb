@@ -8,6 +8,10 @@
 	function handleClick() {
 		active === true ? active = false : active = true;
 	}
+
+	function closeMobileNav() {
+		active = false;
+	}
 </script>
 
 <style>
@@ -50,9 +54,6 @@
 		transform: translateX(0);
 	}
 
-	.active {
-		background-color: red;
-	}
 
 	@media only screen and (min-width: 768px) {
 		.toggler {
@@ -85,13 +86,13 @@
 	<div class="header__inner">
 		<a href='.' class="logo"><img alt='Logo' src='/img/logo.png'></a>
 		<div class="nav">
-			<Nav {segment}/>
+			<Nav {segment} on:click={closeMobileNav} />
 
 
 		</div>
 
 		<div class="toggler">
-			<NavToggler  on:click={handleClick}/>
+			<NavToggler on:click={handleClick} />
 		</div>
 	</div>
 </header>

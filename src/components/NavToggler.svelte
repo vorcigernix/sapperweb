@@ -7,6 +7,7 @@
 		vertical-align: middle;
 		z-index: 20;
 		position: relative;
+		outline: none;
 	}
 
 	.nav-button span {
@@ -42,9 +43,25 @@
 	.nav-button:hover span:before {
 		left: 0;
 	}
+
+	:global(.nav-is-open .nav-button span) {
+		background: transparent !important;
+	}
+
+	:global(.nav-is-open .nav-button span:before) {
+		left: -1px !important;
+		transform: rotate(-45deg);
+	}
+
+	:global(.nav-is-open .nav-button span:after) {
+		left: 0 !important;
+		bottom: -7px !important;
+		transform: rotate(45deg);
+	}
+
 </style>
 
-<div class="nav-button-holder-1">
+<div>
 	<button type="button" class="nav-button" on:click>
 		<span></span>
 	</button>
