@@ -48,7 +48,8 @@ export function get(req, res) {
 
 }
 function reduceCategories(list, { data }) {
-	const { categories, image, price, description } = data;
+	console.log(data)
+	const { categories, title, image, price, description } = data;
 	const categoryName = categories[0].link.data.title[0].text;
 	const mealName = title[0].text;
 	const descriptionText = description[0].text;
