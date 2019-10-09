@@ -3,33 +3,14 @@
     return this.fetch(`offer.json`)
       .then(r => r.json())
       .then(posts => {
-		//console.log(posts);
-		const groupedPosts = posts.reduce(reduceCategories, {});
-		//console.log(groupedPosts);
+        console.log(posts);
         return { posts };
       });
-  }
-  function reduceCategories(list, { data }) {
-	console.log(data);
-    const { categories, title, image, price, description } = data;
-    const categoryName = categories[0].link.data.title[0].text;
-    const mealName = title[0].text;
-    const descriptionText = description[0].text;
-
-    return {
-      ...list,
-      [categoryName]: (list[categoryName] || []).concat({
-        name: mealName,
-        image,
-        price,
-        description: descriptionText
-      })
-    };
   }
 </script>
 
 <script>
-  import Title from "../../components/Title.svelte";
+  import PageTitle from "../../components/PageTitle.svelte";
   import { fade } from "svelte/transition";
   import Product from "../../components/Products.svelte";
   import HeroBanner from "../../components/Banner.svelte";
@@ -216,7 +197,7 @@
 
 <section>
   <div class="container" transition:fade>
-    <Title title="DISCOVER" subTitle="Our Menu" theme="title-dark" />
+    <PageTitle title="DISCOVER" subTitle="Our Menu" theme="title-dark" />
 
     <p>
       Explore texture, color and of course the ultimate tastes with our menu of
@@ -229,7 +210,7 @@
         <li
           class="category__item {current === i ? 'category__item--active' : ''}"
           on:click={() => (current = i)}>
-          <h4 class="category__title">{post.data.categories[0].link.data}</h4>
+          <h4 class="category__title">{post}</h4>
           <div class="category__content">
             <ul class="items">
               <li class="item">
@@ -272,10 +253,3 @@
     </ul>
   </div>
 </section>
-
-<ul>
-  {#each posts as post}
-    <li>{post.data.title[0].text}</li>
-    <Product categoryid={post.id} />
-  {/each}
-</ul>

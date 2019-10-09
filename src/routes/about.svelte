@@ -1,7 +1,7 @@
 <script>
 	import OpenHours from '../components/OpenHours.svelte';
 	import CTA from '../components/CTA.svelte';
-	import Title from '../components/Title.svelte';
+	import Title from '../components/PageTitle.svelte';
 	import HeroBanner from '../components/Banner.svelte';
 </script>
 

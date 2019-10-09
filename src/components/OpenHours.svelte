@@ -1,6 +1,6 @@
 <script>
 	import CTA from '../components/CTA.svelte';
-	import Title from '../components/Title.svelte';
+	import Title from '../components/PageTitle.svelte';
 </script>
 
 <style>
