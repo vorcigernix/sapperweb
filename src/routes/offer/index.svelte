@@ -1,254 +1,273 @@
 <script context="module">
-	export function preload({ params, query }) {
-		return this.fetch(`offer.json`).then(r => r.json()).then(posts => {
-			console.log(posts);
-			return { posts };
-
-		});
-	}
+  export function preload({ params, query }) {
+    return this.fetch(`offer.json`)
+      .then(r => r.json())
+      .then(posts => {
+		console.log(posts[0].data.categories[0].link.data.title[0].text);
+		const groupedPosts = groupBy(posts, 'age');
+        return { posts };
+      });
+  }
 </script>
 
 <script>
-	import Title from '../../components/Title.svelte';
-	import { fade } from 'svelte/transition';
-	import Product from '../../components/Products.svelte'
-	import HeroBanner from '../../components/Banner.svelte';
-	export let posts;
+  import Title from "../../components/Title.svelte";
+  import { fade } from "svelte/transition";
+  import Product from "../../components/Products.svelte";
+  import HeroBanner from "../../components/Banner.svelte";
+  export let posts;
 
-	let current;
+  let current;
+  function groupBy(objectArray, property) {
+    return objectArray.reduce(function(acc, obj) {
+      var key = obj[property];
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      acc[key].push(obj);
+      return acc;
+    }, {});
+  }
 </script>
 
 <style>
-	section {
-		text-align: center;
-		padding-top: 54px;
-		padding-bottom: 32px;
-	}
+  section {
+    text-align: center;
+    padding-top: 54px;
+    padding-bottom: 32px;
+  }
 
-	.category {
-		margin-top: 40px;
-	}
+  .category {
+    margin-top: 40px;
+  }
 
-	.category__item {
-		margin-bottom: 24px;
-		text-align: left;
-	}
+  .category__item {
+    margin-bottom: 24px;
+    text-align: left;
+  }
 
-	.category__title {
-		letter-spacing: 1px;
-		padding: 8px 24px 8px 31px;
-		text-transform: uppercase;
-		cursor: pointer;
-		border: 5px solid #252525;
-		background: #ffffff;
-		transition: all 0.5s ease-in-out 0s;
-		font-size: 32px;
-		color: #252525;
-		font-weight: 700;
-		position: relative;
-	}
+  .category__title {
+    letter-spacing: 1px;
+    padding: 8px 24px 8px 31px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 5px solid #252525;
+    background: #ffffff;
+    transition: all 0.5s ease-in-out 0s;
+    font-size: 32px;
+    color: #252525;
+    font-weight: 700;
+    position: relative;
+  }
 
-	.category__title:hover {
-		background: #252525;
-		color: #fff;
-	}
+  .category__title:hover {
+    background: #252525;
+    color: #fff;
+  }
 
-	.category__title:hover:after,
-	.category__title:hover:before {
-		background: #fff;
-	}
+  .category__title:hover:after,
+  .category__title:hover:before {
+    background: #fff;
+  }
 
-	.category__item--active .category__title:after {
-		transform: rotate(-45deg);
-		background: #fff;
-	}
+  .category__item--active .category__title:after {
+    transform: rotate(-45deg);
+    background: #fff;
+  }
 
-	.category__item--active .category__title:before {
-		transform: rotate(45deg);
-		background: #fff;
-	}
+  .category__item--active .category__title:before {
+    transform: rotate(45deg);
+    background: #fff;
+  }
 
-	.category__title:after,
-	.category__title:before {
-		position: absolute;
-		content: '';
-		width: 10px;
-		height: 3px;
-		left: 6px;
-		top: 50%;
-		background-color: #252525;
-		transform: rotate(45deg);
-		transition: all 0.2s ease-in-out 0s;
-	}
+  .category__title:after,
+  .category__title:before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 3px;
+    left: 6px;
+    top: 50%;
+    background-color: #252525;
+    transform: rotate(45deg);
+    transition: all 0.2s ease-in-out 0s;
+  }
 
-	.category__title:before {
-		transform: rotate(-45deg);
-		left: 12px;
-	}
+  .category__title:before {
+    transform: rotate(-45deg);
+    left: 12px;
+  }
 
-	.items {
-		display: grid;
-		grid-template-columns: 1fr;
-		column-gap: 16px;
-		row-gap: 16px;
-		padding-top: 16px;
-		padding-bottom: 16px;
-	}
+  .items {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 16px;
+    row-gap: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
 
-	.item {
-		display: flex;
-		align-items: center;
-	}
+  .item {
+    display: flex;
+    align-items: center;
+  }
 
-	.item-img {
-		height: 60px;
-		width: 60px;
-		border-radius: 50%;
-		margin-right: 10px;
-	}
+  .item-img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
 
-	.item-name {
-		display: flex;
-		justify-content: space-between;
-		position: relative;
-	}
+  .item-name {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
 
-	.item-name__title,
-	.item-name__price {
-		background-color: #fff;
-		z-index: 2;
-	}
+  .item-name__title,
+  .item-name__price {
+    background-color: #fff;
+    z-index: 2;
+  }
 
-	.item-name__title {
-		padding-right: 5px;
-	}
+  .item-name__title {
+    padding-right: 5px;
+  }
 
-	.item-name__price {
-		padding-left: 5px;
-	}
+  .item-name__price {
+    padding-left: 5px;
+  }
 
-	.item-name__dots {
-		position: absolute;
-		top: 14px;
-		left: 80px;
-		right: 0;
-		margin: 0;
-		border: 0;
-		height: 5px;
-		display: block;
-		background: radial-gradient(#d5d5d5 40%, transparent 10%);
-		background-position: 0 0;
-		background-size: 4px 4px;
-		background-repeat: repeat-x;
-	}
+  .item-name__dots {
+    position: absolute;
+    top: 14px;
+    left: 80px;
+    right: 0;
+    margin: 0;
+    border: 0;
+    height: 5px;
+    display: block;
+    background: radial-gradient(#d5d5d5 40%, transparent 10%);
+    background-position: 0 0;
+    background-size: 4px 4px;
+    background-repeat: repeat-x;
+  }
 
-	.item > div {
-		flex: 1 0 auto;
-	}
+  .item > div {
+    flex: 1 0 auto;
+  }
 
-	.category__content {
-		display: none;
-	}
+  .category__content {
+    display: none;
+  }
 
-	.category__item--active {
-		margin-bottom: 0;
-	}
+  .category__item--active {
+    margin-bottom: 0;
+  }
 
-	.category__item--active .category__content {
-		display: block;
-	}
+  .category__item--active .category__content {
+    display: block;
+  }
 
-	.category__item--active .category__title  {
-		background-color: #252525;
-		color: white;
-	}
+  .category__item--active .category__title {
+    background-color: #252525;
+    color: white;
+  }
 
-	@media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 992px) {
+    .items {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 32px;
+      row-gap: 32px;
+      padding-top: 32px;
+      padding-bottom: 0;
+    }
 
-		.items {
-			grid-template-columns: 1fr 1fr;
-			column-gap: 32px;
-			row-gap: 32px;
-			padding-top: 32px;
-			padding-bottom: 0;
-		}
+    .item {
+      padding: 16px 0;
+    }
 
-		.item {
-			padding: 16px 0;
-		}
-
-		.category__item--active {
-			margin-bottom: 24px;
-		}
-	}
-
+    .category__item--active {
+      margin-bottom: 24px;
+    }
+  }
 </style>
 
 <svelte:head>
-	<title>offer</title>
+  <title>offer</title>
 </svelte:head>
 
-<HeroBanner bannerSubtitle="Welcome to Dina, a modern restaurant with a focus on premium food tastes" bannerTitle="ABOUT US" hasButton=false  bannerImg="hero-banner--offer"  themeBannerHeight=false/>
+<HeroBanner
+  bannerSubtitle="Welcome to Dina, a modern restaurant with a focus on premium
+  food tastes"
+  bannerTitle="ABOUT US"
+  hasButton="false"
+  bannerImg="hero-banner--offer"
+  themeBannerHeight="false" />
 
 <section>
-	<div class="container"  transition:fade>
-		<Title title="DISCOVER" subTitle="Our Menu" theme="title-dark"/>
+  <div class="container" transition:fade>
+    <Title title="DISCOVER" subTitle="Our Menu" theme="title-dark" />
 
-		<p>Explore texture, color and of course the ultimate tastes with our menu of the season. All the ingredients are fresh and carefully selected by our chefs. Enjoy an extraordinary dinning experience.</p>
+    <p>
+      Explore texture, color and of course the ultimate tastes with our menu of
+      the season. All the ingredients are fresh and carefully selected by our
+      chefs. Enjoy an extraordinary dinning experience.
+    </p>
 
-
-		<ul class="category" transition:fade>
-			{#each posts as post, i}
-				<li class="category__item {current === i ? 'category__item--active': ''}" on:click="{() => current = i}">
-					<h4 class="category__title">
-						{post.data.title[0].text}
-					</h4>
-					<div class="category__content">
-						<ul class="items">
-							<li class="item">
-								<img src="img/thumb.jpg" class="item-img" alt="">
-								<div>
-									<p class="item-name">
-										<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-									</p>
-									<p class="item-ingredients">
-										Avocado / Mango / Tomatoes
-									</p>
-								</div>
-							</li>
-							<li class="item">
-								<img src="img/thumb.jpg" class="item-img" alt="">
-								<div>
-									<p class="item-name">
-										<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-									</p>
-									<p class="item-ingredients">
-										Avocado / Mango / Tomatoes
-									</p>
-								</div>
-							</li>
-							<li class="item">
-								<img src="img/thumb.jpg" class="item-img" alt="">
-								<div>
-									<p class="item-name">
-										<span class="item-name__title">AVOCADO & MANGO SALSA</span> <span class="item-name__dots"></span>  <span class="item-name__price">$4.00</span>
-									</p>
-									<p class="item-ingredients">
-										Avocado / Mango / Tomatoes
-									</p>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</li>
-			{/each}
-		</ul>
-	</div>
+    <ul class="category" transition:fade>
+      {#each posts as post, i}
+        <li
+          class="category__item {current === i ? 'category__item--active' : ''}"
+          on:click={() => (current = i)}>
+          <h4 class="category__title">{post.data.categories[0].link.data}</h4>
+          <div class="category__content">
+            <ul class="items">
+              <li class="item">
+                <img src="img/thumb.jpg" class="item-img" alt="" />
+                <div>
+                  <p class="item-name">
+                    <span class="item-name__title">AVOCADO & MANGO SALSA</span>
+                    <span class="item-name__dots" />
+                    <span class="item-name__price">$4.00</span>
+                  </p>
+                  <p class="item-ingredients">Avocado / Mango / Tomatoes</p>
+                </div>
+              </li>
+              <li class="item">
+                <img src="img/thumb.jpg" class="item-img" alt="" />
+                <div>
+                  <p class="item-name">
+                    <span class="item-name__title">AVOCADO & MANGO SALSA</span>
+                    <span class="item-name__dots" />
+                    <span class="item-name__price">$4.00</span>
+                  </p>
+                  <p class="item-ingredients">Avocado / Mango / Tomatoes</p>
+                </div>
+              </li>
+              <li class="item">
+                <img src="img/thumb.jpg" class="item-img" alt="" />
+                <div>
+                  <p class="item-name">
+                    <span class="item-name__title">AVOCADO & MANGO SALSA</span>
+                    <span class="item-name__dots" />
+                    <span class="item-name__price">$4.00</span>
+                  </p>
+                  <p class="item-ingredients">Avocado / Mango / Tomatoes</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      {/each}
+    </ul>
+  </div>
 </section>
 
 <ul>
-	{#each posts as post}
-		<li>{post.data.title[0].text}</li>
-		<Product categoryid={post.id} />
-	{/each}
+  {#each posts as post}
+    <li>{post.data.title[0].text}</li>
+    <Product categoryid={post.id} />
+  {/each}
 </ul>

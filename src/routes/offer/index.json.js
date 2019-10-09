@@ -25,9 +25,9 @@ export function get(req, res) {
 
 	refid.subscribe(value => {
 		ref_value = value;
-		url_value = baseurl + '/documents/search?ref=' + ref_value;
+		url_value = baseurl + '/documents/search?fetchLinks=category.title&ref=' + ref_value;
 		if (ref_value != undefined) {
-			fetch(`${url_value}&q=%5B%5Bat(document.type%2C+"category")%5D%5D#format=json`)
+			fetch(`${url_value}&q=%5B%5Bat(document.type%2C%20"product")%5D%5D`)
 			.then(r => r.json())
 			.then(items => {
 				send(res, 200, JSON.stringify(items.results), {
