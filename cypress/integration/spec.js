@@ -15,5 +15,10 @@ describe('Sapper template app', () => {
 	it('navigates to /offer', () => {
 		cy.get('nav a').contains('offer').click();
 		cy.url().should('include', '/offer');
+		cy
+			.request('https://sapperweb.cdn.prismic.io/api/v2/documents/search?fetchLinks=category.title&ref=XZdMPhIAACIAp04x&q=%5B%5Bat(document.type%2C%20%22product%22)%5D%5D')
+			.then((response) => {
+				expect(response.status).to.eq(200);
+			})
 	});
 });

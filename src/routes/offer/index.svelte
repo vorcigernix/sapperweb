@@ -3,10 +3,28 @@
     return this.fetch(`offer.json`)
       .then(r => r.json())
       .then(posts => {
-		console.log(posts[0].data.categories[0].link.data.title[0].text);
-		const groupedPosts = groupBy(posts, 'age');
+		//console.log(posts);
+		const groupedPosts = posts.reduce(reduceCategories, {});
+		//console.log(groupedPosts);
         return { posts };
       });
+  }
+  function reduceCategories(list, { data }) {
+	console.log(data);
+    const { categories, title, image, price, description } = data;
+    const categoryName = categories[0].link.data.title[0].text;
+    const mealName = title[0].text;
+    const descriptionText = description[0].text;
+
+    return {
+      ...list,
+      [categoryName]: (list[categoryName] || []).concat({
+        name: mealName,
+        image,
+        price,
+        description: descriptionText
+      })
+    };
   }
 </script>
 
@@ -18,16 +36,6 @@
   export let posts;
 
   let current;
-  function groupBy(objectArray, property) {
-    return objectArray.reduce(function(acc, obj) {
-      var key = obj[property];
-      if (!acc[key]) {
-        acc[key] = [];
-      }
-      acc[key].push(obj);
-      return acc;
-    }, {});
-  }
 </script>
 
 <style>
