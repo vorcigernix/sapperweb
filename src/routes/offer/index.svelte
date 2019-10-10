@@ -3,8 +3,8 @@
     return this.fetch(`offer.json`)
       .then(r => r.json())
       .then(posts => {
-        console.log(posts);
-        return { posts };
+        //console.log(posts);
+        return { posts: Object.entries(posts) };
       });
   }
 </script>
@@ -205,12 +205,12 @@
       chefs. Enjoy an extraordinary dinning experience.
     </p>
 
-    <ul class="category" transition:fade>
+    <ul class="category">
       {#each posts as post, i}
         <li
           class="category__item {current === i ? 'category__item--active' : ''}"
           on:click={() => (current = i)}>
-          <h4 class="category__title">{post}</h4>
+          <h4 class="category__title">{post[0]}</h4>
           <div class="category__content">
             <ul class="items">
               <li class="item">

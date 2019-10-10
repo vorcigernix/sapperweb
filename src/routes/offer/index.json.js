@@ -48,7 +48,10 @@ export function get(req, res) {
 
 }
 function reduceCategories(list, { data }) {
-	console.log(data)
+	if (!data.categories[0].link.data) {
+        console.log('malformed', data)
+        return list
+    }
 	const { categories, title, image, price, description } = data;
 	const categoryName = categories[0].link.data.title[0].text;
 	const mealName = title[0].text;
