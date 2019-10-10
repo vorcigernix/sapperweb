@@ -87,6 +87,11 @@
     left: 12px;
   }
 
+  .item-ingredients {
+    font-style: italic;
+    font-size: 14px;
+  }
+
   .items {
     display: grid;
     grid-template-columns: 1fr;
@@ -112,6 +117,9 @@
     display: flex;
     justify-content: space-between;
     position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 
   .item-name__title,
@@ -144,7 +152,7 @@
   }
 
   .item > div {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
   }
 
   .category__content {
@@ -209,43 +217,25 @@
       {#each posts as post, i}
         <li
           class="category__item {current === i ? 'category__item--active' : ''}"
-          on:click={() => (current = i)}>
+          on:click={() => (current !== i ? current = i : current = null)}>
           <h4 class="category__title">{post[0]}</h4>
           <div class="category__content">
             <ul class="items">
-              <li class="item">
-                <img src="img/thumb.jpg" class="item-img" alt="" />
-                <div>
-                  <p class="item-name">
-                    <span class="item-name__title">AVOCADO & MANGO SALSA</span>
-                    <span class="item-name__dots" />
-                    <span class="item-name__price">$4.00</span>
-                  </p>
-                  <p class="item-ingredients">Avocado / Mango / Tomatoes</p>
-                </div>
-              </li>
-              <li class="item">
-                <img src="img/thumb.jpg" class="item-img" alt="" />
-                <div>
-                  <p class="item-name">
-                    <span class="item-name__title">AVOCADO & MANGO SALSA</span>
-                    <span class="item-name__dots" />
-                    <span class="item-name__price">$4.00</span>
-                  </p>
-                  <p class="item-ingredients">Avocado / Mango / Tomatoes</p>
-                </div>
-              </li>
-              <li class="item">
-                <img src="img/thumb.jpg" class="item-img" alt="" />
-                <div>
-                  <p class="item-name">
-                    <span class="item-name__title">AVOCADO & MANGO SALSA</span>
-                    <span class="item-name__dots" />
-                    <span class="item-name__price">$4.00</span>
-                  </p>
-                  <p class="item-ingredients">Avocado / Mango / Tomatoes</p>
-                </div>
-              </li>
+              {#each post[1] as item, i}
+                <li class="item">
+                  <img src="{item.image.url}" class="item-img" alt="" />
+                  <div>
+                    <p class="item-name">
+                      <span class="item-name__title">{item.name}</span>
+                      <span class="item-name__dots" />
+                      <span class="item-name__price">$ {item.price}</span>
+                    </p>
+                    <p class="item-ingredients">
+	                  {item.description}
+                    </p>
+                  </div>
+                </li>
+              {/each}
             </ul>
           </div>
         </li>
