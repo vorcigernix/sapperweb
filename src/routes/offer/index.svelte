@@ -221,6 +221,23 @@
           <h4 class="category__title">{post[0]}</h4>
           <div class="category__content">
             <ul class="items">
+<<<<<<< HEAD
+              {#each post[1] as item, i}
+                <li class="item">
+                  <img src="{item.image.url}" class="item-img" alt="" />
+                  <div>
+                    <p class="item-name">
+                      <span class="item-name__title">{item.name}</span>
+                      <span class="item-name__dots" />
+                      <span class="item-name__price">$ {item.price}</span>
+                    </p>
+                    <p class="item-ingredients">
+	                  {item.description}
+                    </p>
+                  </div>
+                </li>
+              {/each}
+=======
               <li class="item">
                 <img src="img/thumb.jpg" class="item-img" alt="" />
                 <div>
@@ -254,6 +271,7 @@
                   <p class="item-ingredients">Avocado / Mango / Tomatoes</p>
                 </div>
               </li>
+>>>>>>> cats working
             </ul>
           </div>
         </li>
