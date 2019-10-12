@@ -3,7 +3,8 @@
   import Overview from "../components/Overview.svelte";
   import OpenHours from "../components/OpenHours.svelte";
   import { fade } from "svelte/transition";
-  import IntersectionObserver from "../components/Intersection.svelte";
+
+
 </script>
 
 <style>
@@ -21,11 +22,6 @@
     themeBannerHeight="hero-banner--full-height"
     hasButton="true"
     bannerImg="hero-banner--homepage" />
-  <IntersectionObserver once let:intersecting top={400}>
-    {#if intersecting}
-		<div>fkin observer </div>
-    {/if}
-  </IntersectionObserver>
-      <Overview />
-      <OpenHours />
+  <Overview />
+  <OpenHours />
 </div>

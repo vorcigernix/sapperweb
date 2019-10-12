@@ -62,7 +62,7 @@
 </style>
 
 <div>
-	<button type="button" class="nav-button" on:click>
+	<button type="button" class="nav-button" aria-label="show menu" on:click>
 		<span></span>
 	</button>
 </div>
