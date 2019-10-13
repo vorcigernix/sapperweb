@@ -58,7 +58,7 @@
 	<title>About</title>
 </svelte:head>
 
-<HeroBanner bannerSubtitle="Welcome to Dina, a modern restaurant with a focus on premium food tastes" bannerTitle="ABOUT US" hasButton=false  bannerImg="hero-banner--about" themeBannerHeight=false/>
+<HeroBanner bannerSubtitle="Welcome to NerdCafé, a modern restaurant with a focus on premium food tastes" bannerTitle="ABOUT US" hasButton=false  bannerImg="hero-banner--about" themeBannerHeight=false/>
 <section>
 	<div class="container">
 
@@ -67,7 +67,7 @@
 				<Title title="HISTORY" subTitle="ABOUT US" theme="title-dark"/>
 
 				<p class="subtitle">
-					Welcome to Dina, a modern restaurant with a focus on premium food tastes
+					Welcome to NerdCafé, a modern restaurant with a focus on premium food tastes
 				</p>
 
 				<p class="perex">

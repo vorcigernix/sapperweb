@@ -56,7 +56,7 @@
 					ADDRESS:
 				</h2>
 				<p class="block__perex">
-					Dina Restaurant <br>
+					NerdCafé Restaurant <br>
 					40 Park Ave, Brooklyn, New York 70250
 				</p>
 			</div>

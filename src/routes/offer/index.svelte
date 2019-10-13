@@ -197,7 +197,7 @@
 </svelte:head>
 
 <HeroBanner
-  bannerSubtitle="Welcome to Dina, a modern restaurant with a focus on premium
+  bannerSubtitle="Welcome to NerdCafé, a modern restaurant with a focus on premium
   food tastes"
   bannerTitle="ABOUT US"
   hasButton="false"

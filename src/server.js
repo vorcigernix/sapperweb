@@ -12,10 +12,9 @@ const app = polka() // You can also use Express
 		sirv('static', { dev }),
 		sapper.middleware()
 	)
-export default app.handler // Remove .handler when using Express
 
-if (!process.env.NOW_REGION) {
-	app.listen(PORT, err => {
-		if (err) console.log('error', err)
-	})
-}
+app.listen(PORT, err => {
+	if (err) console.log('error', err);
+})
+
+export default app.handler

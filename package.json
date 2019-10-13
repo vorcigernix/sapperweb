@@ -1,11 +1,15 @@
 {
   "name": "sapperweb",
+  "engines": {
+    "node": "10.x"
+  },
   "description": "Sapper Web Template",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build",
-    "export": "sapper export",
+    "build": "sapper export",
+    "now": "sapper build && now",
+    "lbuild": "sapper build",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
@@ -13,7 +17,6 @@
   },
   "dependencies": {
     "compression": "^1.7.1",
-    "node-fetch": "^2.6.0",
     "polka": "next",
     "@polka/send": "^0.4.0",
     "sirv": "^0.4.0"
@@ -23,6 +26,7 @@
     "sapper": "^0.27.0",
     "svelte": "^3.0.0",
     "svelte-loader": "^2.9.0",
-    "webpack": "^4.7.0"
+    "webpack": "^4.7.0",
+    "node-fetch": "^2.6.0"
   }
 }
