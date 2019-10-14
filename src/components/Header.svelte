@@ -1,6 +1,6 @@
 <script>
-  import NavToggler from "../components/NavToggler.svelte";
-  import Nav from "../components/Nav.svelte";
+  import NavToggler from '../components/NavToggler.svelte';
+  import Nav from '../components/Nav.svelte';
   export let segment;
 
   let active = false;
@@ -12,7 +12,6 @@
   function closeMobileNav() {
     active = false;
   }
-  
 </script>
 
 <style>
@@ -26,7 +25,6 @@
     transition: background 250ms ease-in;
     background: var(--background);
   }
-
 
   .header__inner {
     display: flex;

@@ -31,17 +31,17 @@ export function get(req, res, next) {
 import fetch from 'node-fetch';
 import send from '@polka/send';
 
-
-
 export function get(req, res) {
-	const { slug } = req.params;
+  const {slug} = req.params;
 
-	fetch(`https://sapperweb.prismic.io/api/v2/documents/search?ref=XY32zBAAAB4Agd5X&q=%5B%5Bat(my.posts.slug%2C+%22${slug}%22)%5D%5D&format=json`)
-		.then(r => r.json())
-		.then(items => {
-			send(res, 200, JSON.stringify(items.results[0]), {
-				'Cache-Control': `max-age=0, s-max-age=${600}`, // 10 minutes
-				'Content-Type': 'application/json'
-			});
-		});
+  fetch(
+    `https://sapperweb.prismic.io/api/v2/documents/search?ref=XY32zBAAAB4Agd5X&q=%5B%5Bat(my.posts.slug%2C+%22${slug}%22)%5D%5D&format=json`
+  )
+    .then(r => r.json())
+    .then(items => {
+      send(res, 200, JSON.stringify(items.results[0]), {
+        'Cache-Control': `max-age=0, s-max-age=${600}`, // 10 minutes
+        'Content-Type': 'application/json',
+      });
+    });
 }

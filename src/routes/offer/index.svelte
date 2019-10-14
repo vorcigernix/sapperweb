@@ -1,19 +1,19 @@
 <script context="module">
-  export function preload({ params, query }) {
+  export function preload({params, query}) {
     return this.fetch(`offer.json`)
       .then(r => r.json())
       .then(posts => {
         //console.log(posts);
-        return { posts: Object.entries(posts) };
+        return {posts: Object.entries(posts)};
       });
   }
 </script>
 
 <script>
-  import PageTitle from "../../components/PageTitle.svelte";
-  import { fade } from "svelte/transition";
-  import Product from "../../components/Products.svelte";
-  import HeroBanner from "../../components/Banner.svelte";
+  import PageTitle from '../../components/PageTitle.svelte';
+  import {fade} from 'svelte/transition';
+  import Product from '../../components/Products.svelte';
+  import HeroBanner from '../../components/Banner.svelte';
   export let posts;
 
   let current;
@@ -72,7 +72,7 @@
   .category__title:after,
   .category__title:before {
     position: absolute;
-    content: "";
+    content: '';
     width: 10px;
     height: 3px;
     left: 6px;
@@ -197,8 +197,8 @@
 </svelte:head>
 
 <HeroBanner
-  bannerSubtitle="Welcome to NerdCafé, a modern restaurant with a focus on premium
-  food tastes"
+  bannerSubtitle="Welcome to NerdCafé, a modern restaurant with a focus on
+  premium food tastes"
   bannerTitle="ABOUT US"
   hasButton="false"
   bannerImg="hero-banner--offer"
@@ -218,22 +218,20 @@
       {#each posts as post, i}
         <li
           class="category__item {current === i ? 'category__item--active' : ''}"
-          on:click={() => (current !== i ? current = i : current = null)}>
+          on:click={() => (current !== i ? (current = i) : (current = null))}>
           <h4 class="category__title">{post[0]}</h4>
           <div class="category__content">
             <ul class="items">
               {#each post[1] as item, i}
                 <li class="item">
-                  <img src="{item.image.url}" class="item-img" alt="" />
+                  <img src={item.image.url} class="item-img" alt="" />
                   <div>
                     <p class="item-name">
                       <span class="item-name__title">{item.name}</span>
                       <span class="item-name__dots" />
                       <span class="item-name__price">$ {item.price}</span>
                     </p>
-                    <p class="item-ingredients">
-	                  {item.description}
-                    </p>
+                    <p class="item-ingredients">{item.description}</p>
                   </div>
                 </li>
               {/each}

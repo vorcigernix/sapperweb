@@ -1,5 +1,5 @@
 <script>
-  import CTA from "../components/CTA.svelte";
+  import CTA from '../components/CTA.svelte';
 
   export let bannerTitle;
   export let bannerSubtitle;
@@ -28,21 +28,20 @@
     transition: background-color 1s;
   }
 
-
   .hero-banner--homepage {
-    background-image: url("img/img-2.jpg");
+    background-image: url('img/img-2.jpg');
   }
 
   .hero-banner--about {
-    background-image: url("img/img-3.jpg");
+    background-image: url('img/img-3.jpg');
   }
 
   .hero-banner--offer {
-    background-image: url("img/img-4.jpg");
+    background-image: url('img/img-4.jpg');
   }
 
   .hero-banner:before {
-    content: "";
+    content: '';
     background: rgba(25, 32, 46, 0.5);
     position: absolute;
     top: 0;

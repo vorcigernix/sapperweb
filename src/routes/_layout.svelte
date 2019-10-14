@@ -1,15 +1,15 @@
 <script>
-	import Header from '../components/Header.svelte';
-	import Footer from '../components/Footer.svelte';
-	export let segment;
+  import Header from '../components/Header.svelte';
+  import Footer from '../components/Footer.svelte';
+  export let segment;
 </script>
 
 <style>
 
 </style>
 
-<Header {segment}/>
+<Header {segment} />
 <main>
-	<slot></slot>
+  <slot />
 </main>
 <Footer />
