@@ -12,6 +12,8 @@
   .hero-banner {
     padding-top: 64px;
     padding-bottom: 64px;
+    padding-right: 25px;
+    padding-left: 25px;
     max-width: 100vw;
     overflow-x: hidden;
     display: flex;

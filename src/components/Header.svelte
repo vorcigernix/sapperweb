@@ -43,13 +43,13 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 320px;
+    width: 100vw;
     max-width: 100vw;
     transition: all 0.7s cubic-bezier(0.25, 1, 0.35, 1) 0s;
-    transform: translateX(400px);
+    transform: translateX(100vw);
     min-height: 100vh;
     background-color: #151515;
-    padding: 40px 20px 0;
+    padding: 40px 40px 0;
   }
 
   .nav-is-open .nav {
@@ -67,7 +67,7 @@
       transform: translateX(0);
       min-height: auto;
       width: 100%;
-      padding-top: 0;
+      padding: 0 20px 0;
       justify-content: center;
       background-color: transparent;
     }
