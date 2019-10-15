@@ -10,7 +10,7 @@
 
 <style>
   .hero-banner {
-    padding-top: 64px;
+    padding-top: 164px;
     padding-bottom: 64px;
     padding-right: 25px;
     padding-left: 25px;
