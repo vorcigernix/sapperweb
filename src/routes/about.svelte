@@ -57,8 +57,8 @@
 <HeroBanner
   bannerSubtitle="Welcome to NerdCafé, a modern restaurant with a focus on
   premium food tastes"
-  bannerTitle="ABOUT US"
-  bannerImg="hero-banner--about" />
+  bannerTitle="About Us"
+  bannerImg="about" />
 <section>
   <div class="container">
 

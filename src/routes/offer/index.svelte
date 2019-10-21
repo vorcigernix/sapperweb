@@ -223,10 +223,9 @@
 </svelte:head>
 
 <HeroBanner
-  bannerSubtitle="Welcome to NerdCafé, a modern restaurant with a focus on
-  premium food tastes"
-  bannerTitle="ABOUT US"
-  bannerImg="hero-banner--offer" />
+  bannerSubtitle="Check out our premium meal offers, whether you look for snack or lunch"
+  bannerTitle="Offer"
+  bannerImg="offer" />
 
 <section>
   <div class="container" transition:fade>

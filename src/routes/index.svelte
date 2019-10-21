@@ -18,7 +18,7 @@
     bannerSubtitle="You should come and taste for yourself"
     bannerTitle="Welcome"
     themeBannerFullHeight
-    bannerImg="hero-banner--homepage" />
+    bannerImg="homepage" />
   <Overview />
   <OpenHours />
 </div>

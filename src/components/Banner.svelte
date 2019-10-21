@@ -30,15 +30,15 @@
     transition: background-color 1s;
   }
 
-  .hero-banner--homepage {
+  .homepage {
     background-image: url('img/img-2.jpg');
   }
 
-  .hero-banner--about {
+  .about {
     background-image: url('img/img-3.jpg');
   }
 
-  .hero-banner--offer {
+  .offer {
     background-image: url('img/img-4.jpg');
   }
 
