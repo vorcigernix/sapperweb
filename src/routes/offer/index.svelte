@@ -3,7 +3,7 @@
     return this.fetch(`offer.json`)
       .then(r => r.json())
       .then(posts => {
-        //console.log(posts);
+        // console.log(posts);
         return {posts: Object.entries(posts)};
       });
   }
