@@ -3,8 +3,8 @@
 
   export let bannerTitle;
   export let bannerSubtitle;
-  export let themeBannerHeight;
-  export let hasButton;
+  export let themeBannerFullHeight = false;
+  export let hasButton = false;
   export let bannerImg;
 </script>
 
@@ -93,10 +93,10 @@
   }
 </style>
 
-<div class="hero-banner {themeBannerHeight} {bannerImg}">
+<div class="hero-banner {themeBannerFullHeight ? 'hero-banner--full-height' : ''} {bannerImg}">
   <h1>{bannerTitle}</h1>
   <p>{bannerSubtitle}</p>
-  {#if hasButton === 'true'}
+  {#if hasButton}
     <CTA linkHref="#" linkTheme="link-light" linkTitle="Book a table" />
   {/if}
 </div>

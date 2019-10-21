@@ -58,9 +58,7 @@
   bannerSubtitle="Welcome to NerdCafé, a modern restaurant with a focus on
   premium food tastes"
   bannerTitle="ABOUT US"
-  hasButton="false"
-  bannerImg="hero-banner--about"
-  themeBannerHeight="false" />
+  bannerImg="hero-banner--about" />
 <section>
   <div class="container">
 

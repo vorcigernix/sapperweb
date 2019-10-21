@@ -17,8 +17,7 @@
   <HeroBanner
     bannerSubtitle="You should come and taste for yourself"
     bannerTitle="Welcome"
-    themeBannerHeight="hero-banner--full-height"
-    hasButton="true"
+    themeBannerFullHeight
     bannerImg="hero-banner--homepage" />
   <Overview />
   <OpenHours />
