@@ -10,7 +10,7 @@
 </style>
 
 <svelte:head>
-  <title>Sapper project template</title>
+  <title>NerdCafé</title>
 </svelte:head>
 
 <div>

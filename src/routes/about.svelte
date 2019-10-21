@@ -51,7 +51,7 @@
 </style>
 
 <svelte:head>
-  <title>About</title>
+  <title>About NerdCafé</title>
 </svelte:head>
 
 <HeroBanner
@@ -64,7 +64,7 @@
 
     <div class="grid">
       <div class="grid-item">
-        <Title title="HISTORY" subTitle="ABOUT US" theme="title-dark" />
+        <Title title="History" subTitle="About Us" theme="title-dark" />
 
         <p class="subtitle">
           Welcome to NerdCafé, a modern restaurant with a focus on premium food

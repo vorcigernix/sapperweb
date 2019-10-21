@@ -219,7 +219,7 @@
 </style>
 
 <svelte:head>
-  <title>offer</title>
+  <title>NerdCafé Offer &amp; Menu</title>
 </svelte:head>
 
 <HeroBanner
@@ -229,7 +229,7 @@
 
 <section>
   <div class="container" transition:fade>
-    <PageTitle title="DISCOVER" subTitle="Our Menu" theme="title-dark" />
+    <PageTitle title="Discover" subTitle="Our Menu" theme="title-dark" />
 
     <p>
       Explore texture, color and of course the ultimate tastes with our menu of
@@ -252,7 +252,7 @@
                     <p class="item-name">
                       <span class="item-name__title">{item.name}</span>
                       <span class="item-name__dots" />
-                      <span class="item-name__price">$ {item.price}</span>
+                      <span class="item-name__price">$&nbsp;{item.price}</span>
                     </p>
                     <p class="item-ingredients">{item.description}</p>
                   </div>

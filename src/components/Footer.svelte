@@ -24,6 +24,7 @@
     line-height: 1.4em;
     font-size: 24px;
     margin-bottom: 16px;
+    text-transform: uppercase;
   }
 
   .block__perex {
@@ -55,7 +56,7 @@
   <div class="container">
     <div class="overview-grid">
       <div class="block">
-        <h2 class="block__title">ADDRESS:</h2>
+        <h2 class="block__title">Address</h2>
         <p class="block__perex">
           NerdCafé Restaurant
           <br />
@@ -63,7 +64,7 @@
         </p>
       </div>
       <div class="block">
-        <h2 class="block__title">RESERVATION:</h2>
+        <h2 class="block__title">Reservation</h2>
         <p class="block__perex">
           000-111-222
           <br />
@@ -71,7 +72,7 @@
         </p>
       </div>
       <div class="block">
-        <h2 class="block__title">OPEN HOURS:</h2>
+        <h2 class="block__title">Open Hours</h2>
         <p class="block__perex">
           Monday - Friday: 10 AM - 11 PM
           <br />
